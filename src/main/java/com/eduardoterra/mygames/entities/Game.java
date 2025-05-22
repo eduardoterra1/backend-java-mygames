@@ -13,31 +13,34 @@ public class Game {
     
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
-
     @Column (name="game_year")
     private Integer year;
     private String genre;
-    private String platform;
+    private String platforms;
+    private Double score;
     private String imgUrl;
+    @Column(columnDefinition = "TEXT")
     private String shortDescription; 
-    private String longDescripion; 
+    @Column(columnDefinition = "TEXT")
+    private String longDescription; 
 
     private Game(){
 
     }
 
-    public Game(long id, String title, Integer year, String genre, String platform, String imgUrl,
-            String shortDescription, String longDescripion) {
+    public Game(long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
+            String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
         this.year = year;
         this.genre = genre;
-        this.platform = platform;
+        this.platforms = platforms;
+        this.score = score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
-        this.longDescripion = longDescripion;
+        this.longDescription = longDescription;
     }
 
     public long getId() {
@@ -73,11 +76,19 @@ public class Game {
     }
 
     public String getPlatform() {
-        return platform;
+        return platforms;
     }
 
     public void setPlatform(String platform) {
-        this.platform = platform;
+        this.platforms = platform;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public String getImgUrl() {
@@ -97,11 +108,11 @@ public class Game {
     }
 
     public String getLongDescripion() {
-        return longDescripion;
+        return longDescription;
     }
 
     public void setLongDescripion(String longDescripion) {
-        this.longDescripion = longDescripion;
+        this.longDescription = longDescripion;
     }
 
     @Override

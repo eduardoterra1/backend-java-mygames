@@ -110,12 +110,12 @@ public class Game {
         this.shortDescription = shortDescription;
     }
 
-    public String getLongDescripion() {
+    public String getLongDescription() {
         return longDescription;
     }
-
-    public void setLongDescripion(String longDescripion) {
-        this.longDescription = longDescripion;
+    
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
     }
 
     @Override

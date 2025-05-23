@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eduardoterra.mygames.dto.GameDTO;
+import com.eduardoterra.mygames.dto.GameListDTO;
 import com.eduardoterra.mygames.dto.GameMinDTO;
 import com.eduardoterra.mygames.entities.Game;
 import com.eduardoterra.mygames.repositories.GameRepository;
@@ -29,5 +30,4 @@ public class GameService {
         List<Game> result = gameRepository.findAll();
         return result.stream().map(x -> new GameMinDTO(x)).toList();
     }
- 
 }

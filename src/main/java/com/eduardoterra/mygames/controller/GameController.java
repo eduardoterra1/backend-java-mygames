@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eduardoterra.mygames.dto.GameDTO;
+import com.eduardoterra.mygames.dto.GameListDTO;
 import com.eduardoterra.mygames.dto.GameMinDTO;
 import com.eduardoterra.mygames.services.GameService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping(value = "/games")
@@ -28,6 +31,6 @@ public class GameController {
     @GetMapping
     public List<GameMinDTO> findAll(){
         List<GameMinDTO> result = gameService.findAll();
-        return result;
-    }  
+        return result;    
+    } 
 }

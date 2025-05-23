@@ -7,3 +7,4 @@ import com.eduardoterra.mygames.entities.Game;
 public interface GameRepository extends JpaRepository<Game, Long> {
     
 }
+

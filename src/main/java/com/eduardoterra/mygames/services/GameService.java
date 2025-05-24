@@ -10,6 +10,7 @@ import com.eduardoterra.mygames.dto.GameDTO;
 import com.eduardoterra.mygames.dto.GameListDTO;
 import com.eduardoterra.mygames.dto.GameMinDTO;
 import com.eduardoterra.mygames.entities.Game;
+import com.eduardoterra.mygames.projections.GameMinProjection;
 import com.eduardoterra.mygames.repositories.GameRepository;
 
 @Service
@@ -28,6 +29,12 @@ public class GameService {
     @Transactional(readOnly = true)
     public List<GameMinDTO> findAll(){
         List<Game> result = gameRepository.findAll();
+        return result.stream().map(x -> new GameMinDTO(x)).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findByList(Long listId){
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
         return result.stream().map(x -> new GameMinDTO(x)).toList();
     }
 }
